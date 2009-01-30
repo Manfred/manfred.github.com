@@ -9,7 +9,7 @@
 }
 html, body
 {
-  font: 16px/20px Futura, Century Gothic, Sans-Serif;
+  font: 18px/22px Futura, Century Gothic, Sans-Serif;
   background-color: #fff;
   color: #000;
   
@@ -40,3 +40,16 @@ a, a:visited
 }
 a:hover { color: #1010ff; }
 a:active { color: yellow; }
+hr
+{
+  background-color: #eee;
+  height: 1px;
+  border: none;
+  margin: 8px 50px 8px 50px;
+}
+img.mugshot
+{
+  float: left;
+  margin: 4px 8px 0px 0px;
+  border: 1px solid black;
+}
