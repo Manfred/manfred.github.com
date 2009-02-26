@@ -24,6 +24,7 @@ h1
 {
   text-align: center;
 }
+
 p
 {
   color: #777;
@@ -33,6 +34,25 @@ p.intro
   font-style: italic;
   color: #444;
 }
+
+p.more
+{
+  text-align: center;
+  background-color: #eee;
+  font-size: 9px;
+  font-style: italic;
+  color: #aaa;
+}
+p.more a
+{
+  font-style: italic;
+  color: #666;
+}
+p.more a:hover
+{
+  color: #444;
+}
+
 a, a:visited
 {
   color: #4040dd;
@@ -42,14 +62,14 @@ a:hover { color: #1010ff; }
 a:active { color: yellow; }
 hr
 {
-  background-color: #eee;
   height: 1px;
   border: none;
+  border-bottom: 1px dotted #aaa;
   margin: 8px 50px 8px 50px;
 }
 img.mugshot
 {
   float: left;
   margin: 4px 8px 0px 0px;
-  border: 1px solid black;
+  border: 1px dotted #999;
 }
