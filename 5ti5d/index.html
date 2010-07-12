@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ruby · Vijf Talen in Vijf Dagen</title>
+    <link href="stylesheets/default.css" media="all" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="container"><div id="inner">
+      <h1>Exercises</h1>
+      
+      <p>
+        Each exercise has a number of separate parts, you're free to choose any of the parts or
+        complete them all. There are also some bonus tasks if you feel up for the challenge.
+        Good luck!
+      </p>
+      
+      <p>
+        Start by <a href="exercises.zip">downloading the materials</a> needed for the exercises.
+      </p>
+      
+      <h3>1. Parsing HTTP headers</h3>
+      
+      <p>
+        The goal of this exercise is to parse the headers provided in the examples directory. You
+        can find the files accompanying this exercise in <tt>exercises/parsing-http-headers</tt>.
+      </p>
+      
+      <p>
+        Install the <tt>png</tt> and <tt>RubyInline</tt> libraries, preferably with Rubygems.
+      </p>
+      
+      <pre><code>$ gem install png
+$ gem install RubyInline</code></pre>
+      
+      <p>
+        Or otherwise install from source:
+        <a href="http://rubyforge.org/frs/download.php/59204/png-1.2.0.tgz">png-1.2.0.tgz</a>, 
+        <a href="http://rubyforge.org/frs/download.php/67845/RubyInline-3.8.4.tgz">RubyInline-3.8.4.tgz</a>
+      </p>
+      
+      
+      <h4>1.1. Parsing</h4>
+      
+      <p>
+        Parse the input shown on the left and try to generate the Ruby hash shown on the right.
+      </p>
+      
+      <div class="columns-2 code">
+        <div class="column"><pre><code>Date: Sun, 25 Apr 2010 12:17:38 GMT
+Server: Apache/2.2.14 (Unix)
+Content-Length: 44
+Content-Type: text/html</code></pre></div>
+        <div class="column"><pre><code>{
+  'date' => 'Sun, 25 Apr 2010 12:17:38 GMT',
+  'server' => 'Apache/2.2.14 (Unix)',
+  'content-length' => '44',
+  'content-type' => 'text/html'
+}</code></pre></div>
+        <div class="clear"></div>
+      </div>
+      
+      <h4>1.2. Reading from a file</h4>
+      
+      <p>
+        In the <tt>examples</tt> directory you can find a number of files with examples of HTTP
+        headers. Figure out how to read these files from disk and parse them. In <tt>expected</tt>
+        you can find files with the same names. These files contain the ‘solutions’.
+      </p>
+      
+      <h4>1.3. Respecting types</h4>
+      
+      <p>
+        The header values are currently all strings. The assignment is to convert them to
+        objects with a more fitting class. For instance, the ‘date’ header could be a Time object.
+        Figure out how to automatically cast all the header values.
+      </p>
+      
+      <div class="columns-2 code">
+        <div class="column"><pre><code>Date: Sun, 25 Apr 2010 12:17:38 GMT
+Server: Apache/2.2.14 (Unix)
+Content-Length: 44
+Content-Type: text/html</code></pre></div>
+        <div class="column"><pre><code>{
+  'date' => Time.utc(2010, 3, 25, 12, 17, 38),
+  'server' => 'Apache/2.2.14 (Unix)',
+  'content-length' => 44,
+  'content-type' => 'text/html'
+}</code></pre></div>
+        <div class="clear"></div>
+      </div>
+      
+      <p>
+        You can either look at the examples or you can find out all possible header values from the
+        HTTP 1.1 RFC. The relevant sections are
+        <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.5">General Header Fields</a>,
+        <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.3">Request Header Fields</a>,
+        <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6.2">Response Header Fields</a>
+      </p>
+      
+      <h4>1.4. Bonus: Status line</h4>
+      
+      <p>
+        The supplied headers are in fact only part of the complete HTTP request or response. Find a
+        way to also parse the status line contained in the examples and come up with a nice way to
+        store them. Maybe you can define a <code>Request</code> or <code>Response</code> class?
+      </p>
+      
+      <h4>1.5. Bonus: Writing unit tests</h4>
+      
+      <p>
+        For extra bonus points you can try to write automated tests for your code using the examples
+        and solutions. There is a short article over at Wikibooks about
+        <a href="http://en.wikibooks.org/wiki/Ruby_Programming/Unit_testing">testing Ruby with test/unit</a>.
+      </p>
+      
+      <h3>2. Drawing graphs</h3>
+      
+      <p>
+        In this exercise the goal is to draw graphs using a PNG library. You can find the data
+        files for this exercise in the <tt>drawing-graphs</tt> directory.
+      </p>
+      
+      <h4>2.1. Reading data files</h4>
+      
+      <p>
+        The data files for this exercise contain integer values. Read these values from the files
+        and store them as integers in an array.
+      </p>
+      
+      <h4>2.2. Drawing lines on a canvas</h4>
+      
+      <p>
+        Use the PNG library and create an image of 64 by 65 pixels. The image should have a black
+        background and a white line running through the center from left to right. It should look
+        like the image below.
+      </p>
+      
+      <p><img src="images/drawing-graphs-line.png"></p>
+      
+      <h4>2.3. Drawing the values from the data file as a bar graph</h4>
+      
+      <p>
+        Render the values read from the data files as a bar graph into a PNG. Fit the values in
+        the 64 by 65 pixel image you created in the previous part of the exercise.
+      </p>
+      
+      <p><img src="images/drawing-graphs-solution.png"></p>
+      
+      <h4>2.4. Bonus: Rendering an actual sinus</h4>
+      
+      <p>
+        For extra points try to render a sinusoid using a sinus function on a larger image.
+      </p>
+      
+      <h4>2.5. Bonus: Writing unit tests</h4>
+      
+      <p>
+        How would you go about writing automated tests for the rendered image? What are the pros
+        and cons for such a solution?
+      </p>
+    </div></div>
+  </body>
+</html>
