@@ -16,7 +16,13 @@
       </p>
       
       <p>
-        Start by <a href="exercises.zip">downloading the materials</a> needed for the exercises.
+        Start by downloading the materials needed for the exercises. You can also check out the
+        Git repository for the exercises.
+      </p>
+      
+      <p class="help">
+        If you want to look through all Ruby syntax really quickly, you can use the
+        <a href="http://www.zenspider.com/Languages/Ruby/QuickRef.html">Ruby quick reference</a>.
       </p>
       
       <h3>1. Parsing HTTP headers</h3>
@@ -25,20 +31,6 @@
         The goal of this exercise is to parse the headers provided in the examples directory. You
         can find the files accompanying this exercise in <tt>exercises/parsing-http-headers</tt>.
       </p>
-      
-      <p>
-        Install the <tt>png</tt> and <tt>RubyInline</tt> libraries, preferably with Rubygems.
-      </p>
-      
-      <pre><code>$ gem install png
-$ gem install RubyInline</code></pre>
-      
-      <p>
-        Or otherwise install from source:
-        <a href="http://rubyforge.org/frs/download.php/59204/png-1.2.0.tgz">png-1.2.0.tgz</a>, 
-        <a href="http://rubyforge.org/frs/download.php/67845/RubyInline-3.8.4.tgz">RubyInline-3.8.4.tgz</a>
-      </p>
-      
       
       <h4>1.1. Parsing</h4>
       
@@ -106,7 +98,7 @@ Content-Type: text/html</code></pre></div>
         store them. Maybe you can define a <code>Request</code> or <code>Response</code> class?
       </p>
       
-      <h4>1.5. Bonus: Writing unit tests</h4>
+      <h4>1.5. Bonus: Writing automated tests</h4>
       
       <p>
         For extra bonus points you can try to write automated tests for your code using the examples
@@ -120,6 +112,21 @@ Content-Type: text/html</code></pre></div>
         In this exercise the goal is to draw graphs using a PNG library. You can find the data
         files for this exercise in the <tt>drawing-graphs</tt> directory.
       </p>
+      
+      <div class="help">
+        Install the <tt>chunky_png</tt> library, preferably with Rubygems.
+        
+        <pre><code>$ gem install chunky_png</code></pre>
+        
+        <p>
+          Or otherwise install from source:
+          <a href="https://github.com/wvanbergen/chunky_png/tarball/master">Chunky PNG source</a>.
+        </p>
+        
+        <p>
+          Documentation for Chunky PNG can be found on its <a href="https://github.com/wvanbergen/chunky_png/wiki">GitHub wiki</a> or in the <a href="http://rdoc.info/gems/chunky_png/1.2.0/ChunkyPNG">RDoc documentation</a>.
+        </p>
+      </div>
       
       <h4>2.1. Reading data files</h4>
       
@@ -147,17 +154,89 @@ Content-Type: text/html</code></pre></div>
       
       <p><img src="images/drawing-graphs-solution.png"></p>
       
-      <h4>2.4. Bonus: Rendering an actual sinus</h4>
+      <h4>2.4. Bonus: Rendering an actual sine</h4>
       
       <p>
-        For extra points try to render a sinusoid using a sinus function on a larger image.
+        For extra points try to render a sine using a sine function on a larger image.
       </p>
       
-      <h4>2.5. Bonus: Writing unit tests</h4>
+      <h4>2.5. Bonus: Writing automated tests</h4>
       
       <p>
         How would you go about writing automated tests for the rendered image? What are the pros
         and cons for such a solution?
+      </p>
+      
+      <h3>3. Web app</h3>
+      
+      <p>
+        In the last exercise we will write a small web app. The web app will allow visitors to
+        post a short opinion about the course.
+      </p>
+      
+      <p>You're welcome to use anything to accomplish this. A few possible projects of interest
+        are: <a href="http://rack.rubyforge.org/">Rack</a>,
+        <a href="http://rubyonrails.org/">Ruby on Rails</a>,
+        <a href="http://ramaze.net/">Ramaze</a>,
+        and <a href="http://www.sinatrarb.com/">Sinatra</a>.
+      </p>
+      
+      <p>
+        If you don't want to choose, you should probably pick Sinatra. It's easiest to learn. The
+        <a href="http://www.sinatrarb.com/intro">Sinatra intro</a> explains how to install it.
+        It's also a quick way to learn Sinatra.
+      </p>
+      
+      <h4>3.1. Rendering a front page</h4>
+      
+      <p>
+        Render a front page with a title when someone visits your website on the root <code>/</code>.
+      </p>
+      
+      <p><img src="images/wa-part-1.png"></p>
+      
+      <h4>3.2. Adding a form</h4>
+      
+      <p>
+        Add a form to the homepage that allows visitors to type their message. Save the message
+        sent by people and store them in a database. The easiest way to set up a database is
+        to probably to use
+        <a href="http://sinatra-book.gittr.com/#datamapper">Datamapper with a Sqlite3 backend</a>.
+        Alternatively you can use your favorite search engine to find alternatives and install
+        instructions.
+      </p>
+      
+      <pre class="help"><code>$ gem install datamapper dm-sqlite-adapter</code></pre>
+      
+      <p><img src="images/wa-part-2.png"></p>
+      
+      <h4>3.3. Showing the messages</h4>
+      
+      <p>
+        Show all messages posted by visitors under the form.
+      </p>
+      
+      <p><img src="images/wa-part-3.png"></p>
+      
+      <h4>3.4. Bonus: don't allow blank messages</h4>
+      
+      <p>
+        If you haven't done this previously, make sure you don't allow blank posts. Show a nice
+        error messages to visitors to remind them of their folly.
+      </p>
+      
+      <p><img src="images/wa-part-4.png"></p>
+      
+      <h4>3.5. Bonus: writing automated tests</h4>
+      
+      <p>
+        How do you test a web application? Do you test through the whole stack; web server, framework, application code, and rendering engine? How will the way you test impact further development?
+      </p>
+      <p>
+        Try to write a least one functional test for your front page.
+      </p>
+      <p class="help">
+        If you're using Sinatra, you can read <a href="http://www.sinatrarb.com/testing.html">the documentation about testing</a>.
       </p>
     </div></div>
   </body>

@@ -57,6 +57,28 @@ code
 }
 
 /* Misc */
+
+div.help,
+p.help,
+pre.help
+{
+  border: 1px solid #ddd;
+  background-color: #eee;
+}
+pre.help,
+div.help
+{
+  padding: 14px;
+  margin-top: 14px;
+}
+p.help
+{
+  padding: 14px;
+}
+div.help pre
+{
+  margin-top: 14px;
+}
 .clear
 {
   clear: both;
