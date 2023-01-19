@@ -1,19 +1,21 @@
-html, body
-{
-  font: 34px "Helvetica Neue", Helvetica, Arial, Sans-serif;
-  background-color: #fff;
-  color: #000;
-  font: 18px/12px Helvetica, Arial, Sans-serif;
-  padding: 0px;
-  margin: 0px;
-  line-height: 24px;
-  font-size: 14px;
+html, body {
+  font: 18px "Helvetica Neue", Helvetica, Arial, Sans-serif;
+  line-height: 1.4;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
 }
-body
-{
+body {
   margin: 2em;
 }
-h1
-{
+h1, h2 {
   font-weight: normal;
+}
+nav ul, nav ul li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+li a {
+  text-decoration: none;
 }
