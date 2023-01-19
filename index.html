@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <title>Manfred Stienstra</title>
-    <link rel="stylesheet" href="stylesheets/default.css" type="text/css; charset=utf-8" />
-  </head>
-  <body>
-    <h1>Manfred Stienstra</h1>
-    <p>
-      Hi, I'm a developer living in Amsterdam, the Netherlands. I work at <a href="http://www.fngtps.com">Fingertips</a> where we develop clean and easy to use web, IOS and desktop applications. My job allows me to work on a wide variety of things like code, information architecture, technical writing, and interaction design.
-    </p>
-  </body>
-</html>
+---
+layout: default
+---
+
+<ul>
+  {% for post in site.posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
